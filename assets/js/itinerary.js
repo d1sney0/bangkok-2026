@@ -279,6 +279,37 @@ function renderSlot(s) {
   </div>`;
 }
 
+// Ordered, de-duplicated real place queries for a day (skips 固定行程/飯店 with no map).
+function dayPlaces(d) {
+  const seen = new Set();
+  const out = [];
+  d.slots.forEach((s) =>
+    (s.maps || []).forEach((m) => {
+      if (!seen.has(m.q)) { seen.add(m.q); out.push(m.q); }
+    })
+  );
+  return out.slice(0, 9); // Google directions embed caps around ~10 stops
+}
+
+// Keyless Google Maps embed: a route through the day's stops (or a single pin).
+function dayMapSrc(d) {
+  const places = dayPlaces(d);
+  if (!places.length) return "";
+  const e = encodeURIComponent;
+  if (places.length === 1) return `https://maps.google.com/maps?q=${e(places[0])}&z=14&output=embed`;
+  const daddr = places.slice(1).map(e).join("+to:");
+  return `https://maps.google.com/maps?saddr=${e(places[0])}&daddr=${daddr}&output=embed`;
+}
+
+function renderDayMap(d) {
+  const src = dayMapSrc(d);
+  if (!src) return "";
+  return `<div class="daymap">
+    <iframe class="daymap__frame" data-src="${src}" loading="lazy" title="${d.date} 當天景點地圖"></iframe>
+    <div class="daymap__hint">當天景點路線 · 點地圖可放大或在 Google 地圖開啟導航</div>
+  </div>`;
+}
+
 function renderDay(d) {
   const t = DAY_THEME[d.dow];
   const sub = d.sub ? `<span class="day__sub">${d.sub}</span>` : "";
@@ -289,6 +320,7 @@ function renderDay(d) {
       <span class="day__dow"><b>星期${d.dow}</b><i>${t.th}</i></span>
       <span class="day__theme">${d.theme}${sub}</span>
     </div>
+    ${renderDayMap(d)}
     <div class="timeline">${slots}</div>
   </section>`;
 }
@@ -450,6 +482,11 @@ function wireTabs(root) {
   const activate = (id, scroll) => {
     if (!panelById.has(id)) id = first;
     panels.forEach((p) => { p.hidden = p.dataset.panel !== id; });
+    // Lazy-load the shown panel's map iframe(s) — avoids loading all 7 at once.
+    panelById.get(id).querySelectorAll("iframe[data-src]").forEach((f) => {
+      f.src = f.dataset.src;
+      f.removeAttribute("data-src");
+    });
     pills.forEach((p) => p.classList.toggle("is-active", p.dataset.target === id));
     const pill = byTarget.get(id);
     if (pill) centerPill(pill);

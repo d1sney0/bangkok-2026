@@ -244,6 +244,24 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .day__theme { font-weight: 800; font-size: 1.02rem; }
 .day__sub { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.9; }
 
+/* ---------- Day map (keyless Google embed) ---------- */
+.daymap {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--day);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+.daymap__frame { width: 100%; height: 270px; border: 0; display: block; background: var(--paper-2); }
+.daymap__hint {
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  padding: 7px 12px;
+  border-top: 1px solid var(--line);
+}
+
 /* ---------- Timeline ---------- */
 .timeline { position: relative; margin: 4px 0 8px; padding: 16px 0 4px 8px; }
 .timeline::before {
