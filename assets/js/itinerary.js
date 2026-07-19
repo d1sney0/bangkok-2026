@@ -72,16 +72,13 @@ const TRIP = {
       ],
     },
     {
-      id: "d4", date: "7/24", dow: "五", theme: "搬飯店＋Sukhumvit 逛街＋按摩", sub: "",
+      id: "d4", date: "7/24", dow: "五", theme: "搬飯店＋吞武里市場＋按摩", sub: "",
       slots: [
         { time: "上午", title: "退房／移動至 Carlton", loc: "曼谷素坤逸卡爾頓酒店", note: "可先寄放行李。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
-        { time: "12:30–15:30", title: "Sukhumvit 商圈慢慢逛", loc: "EmQuartier／Gourmet Market／Villa Market／Thong Smith",
-          note: "午餐 Thong Smith，逛街時間保留久一點。",
-          maps: [
-            { label: "EmQuartier", q: "EmQuartier Bangkok" },
-            { label: "Thong Smith", q: "Thong Smith EmQuartier" },
-          ] },
+        { time: "12:00–15:00", title: "吞武里市場", loc: "吞武里市場（河邊市場）",
+          note: "寄完行李改去吞武里市場。位於西側 Thonburi、離飯店較遠，留足往返時間趕上 16:00 按摩；午餐可在市場解決，出發前確認營業日。",
+          maps: [{ label: "吞武里市場", q: "13.7847965,100.3971688" }] },
         { time: "16:00–18:00", title: "按摩（已預約）", loc: "AThai&massage (by aspa)", note: "固定行程。", fixed: true },
         { time: "18:30–20:00", title: "晚餐", loc: "NEUA.NEUR.BKK", note: "<span class=\"hot\">熱門店，請先訂位（18:30）。</span>",
           maps: [{ label: "NEUA.NEUR.BKK", q: "NEUA NEUR BKK Bangkok" }] },
@@ -189,7 +186,7 @@ const TRIP = {
   ],
   top5: [
     "Wat Arun＋泰服拍照（新動線：早上先拍）",
-    "EmQuartier／CentralWorld 逛街",
+    "CentralWorld 逛街",
     "Big C Ratchadamri 伴手禮採買",
     "朱拉隆功夜市",
     "Si Yaek Huatakhe Cafe & Guesthouse",
@@ -207,7 +204,6 @@ const TRIP = {
       { name: "Sudjai ทองม้วนสด", cat: "泰式蛋捲", q: "Sudjai thong muan sod Bangkok" },
       { name: "Let's Relax Spa", cat: "水療（Ella 推薦）", q: "Let's Relax Spa Bangkok" },
       { name: "Mae Klong Hua Pla Mo Fai", cat: "魚頭火鍋", q: "Mae Klong Hua Pla Mo Fai Bangkok" },
-      { name: "呑武里市場", cat: "河邊市場", q: "Thonburi Market Bangkok" },
       { name: "陳瑞興餐室", cat: "老字號餐室", q: "陳瑞興餐室 曼谷" },
       { name: "泰式椰奶脆餅", cat: "街頭小吃", q: "泰式椰奶脆餅 曼谷" },
       { name: "Dhou noodles", cat: "粥 · 粿條", q: "Dhou noodles โจ๊ก ก๋วยเตี๋ยว Bangkok" },
