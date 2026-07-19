@@ -90,7 +90,7 @@ const TRIP = {
       ],
     },
     {
-      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日＋夜市", sub: "",
+      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日", sub: "",
       slots: [
         { time: "07:00", title: "出門", loc: "飯店 → Bangkok & Blush", note: "早出門避開人潮與酷熱。" },
         { time: "07:45–08:45", title: "泰服租借＋妝髮", loc: "Bangkok & Blush",
@@ -117,14 +117,9 @@ const TRIP = {
         { time: "14:30–15:30", title: "河岸散步", loc: "Tha Maharaj",
           note: "逛完兩寺步行至河岸商場 Tha Maharaj（Maharaj 碼頭旁），咖啡、河景、伴手禮。",
           maps: [{ label: "Tha Maharaj", q: "Tha Maharaj Bangkok" }] },
-        { time: "16:00–18:00", title: "回飯店休息", loc: "Carlton Hotel Sukhumvit", note: "七月炎熱＋午後易雷陣雨，此時段留室內。",
+        { time: "16:00 後", title: "回飯店休息（不再外出）", loc: "Carlton Hotel Sukhumvit",
+          note: "七月炎熱＋午後易雷陣雨；<span class=\"hot\">回飯店後不再外出</span>，早點休息。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
-        { time: "18:30 後", title: "夜市", loc: "JODD FAIRS Ratchada",
-          note: "<span class=\"hot\">地點</span>：MRT 泰國文化中心站旁（非舊 Rama 9 址），每日 17:00–01:00。隔壁即 The One Ratchada 火車夜市，可順逛。",
-          maps: [
-            { label: "JODD FAIRS Ratchada", q: "Jodd Fairs Rama 9 Ratchada" },
-            { label: "The One Ratchada", q: "The One Ratchada" },
-          ] },
       ],
     },
     {
@@ -132,13 +127,18 @@ const TRIP = {
       slots: [
         { time: "10:00–12:00", title: "早午餐", loc: "Baan Prapa", note: "環境漂亮，悠閒安排。",
           maps: [{ label: "Baan Prapa", q: "Baan Prapa Bangkok" }] },
-        { time: "12:30–16:30", title: "伴手禮採買／逛街", loc: "Big C Ratchadamri／CentralWorld",
+        { time: "12:30–14:30", title: "伴手禮採買", loc: "Big C Ratchadamri",
           note: "室內行程，剛好避開午後雷陣雨；Big C 一次買齊。",
-          maps: [
-            { label: "Big C Ratchadamri", q: "Big C Ratchadamri" },
-            { label: "CentralWorld", q: "CentralWorld Bangkok" },
-          ] },
-        { time: "16:30–18:00", title: "回飯店整理／休息", loc: "Carlton Hotel Sukhumvit", note: "避免晚餐與夜市前太累。",
+          maps: [{ label: "Big C Ratchadamri", q: "Big C Ratchadamri" }] },
+        { time: "14:30–14:50", title: "泰式手標茶", loc: "Cha Tra Mue（商圈內）",
+          note: "Ratchadamri／CentralWorld 一帶的手標茶，順路喝一杯。",
+          maps: [{ label: "Cha Tra Mue 泰式手標茶", q: "13.7469281,100.5386487" }] },
+        { time: "14:50–16:30", title: "逛街", loc: "CentralWorld", note: "順逛，為伴手禮探路。",
+          maps: [{ label: "CentralWorld", q: "CentralWorld Bangkok" }] },
+        { time: "16:30–16:50", title: "Karun Thai Tea", loc: "CentralWorld 內",
+          note: "CentralWorld 裡的泰式茶飲，逛完喝一杯再回飯店。",
+          maps: [{ label: "Karun Thai Tea", q: "Karun Thai Tea CentralWorld Bangkok" }] },
+        { time: "16:50–18:00", title: "回飯店整理／休息", loc: "Carlton Hotel Sukhumvit", note: "避免晚餐與夜市前太累。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
         { time: "18:00–19:30", title: "晚餐（依訂位結果定案）", loc: "Jeh O Chula 或 Kuay Jab Mr. Joe",
           note: "Jeh O 17:30 開始營業、<span class=\"hot\">現場排 1–2 小時</span>；請先用 QueQ App 或 Klook 訂位，訂不到就直接去 Mr. Joe，勿現場賭排隊，否則趕不上夜市。",
@@ -203,7 +203,6 @@ const TRIP = {
     // 清單中「行程尚未排入」的口袋名單；已排入日程的點不重複列。完整 37 點見上方連結。
     pocket: [
       { name: "Mae Varee", cat: "芒果糯米飯（名店）", q: "Mae Varee Thonglor Bangkok" },
-      { name: "Karun Thai Tea", cat: "泰式茶飲 · CentralWorld", q: "Karun Thai Tea CentralWorld Bangkok" },
       { name: "Ying Charoen Market", cat: "鮮食市場", q: "Ying Charoen Market Bangkok" },
       { name: "班蘭蛋捲", cat: "泰式點心", q: "班蘭蛋捲 曼谷" },
       { name: "Sudjai ทองม้วนสด", cat: "泰式蛋捲", q: "Sudjai thong muan sod Bangkok" },
