@@ -1,25 +1,25 @@
-// 曼谷行程規劃（更新版）｜2026/7/21–7/27 — data-driven static page.
+// 曼谷行程規劃｜2026/7/21–7/27 — data-driven static page.
 // 資料整理自「曼谷行程規劃_更新版_2026-07-21_to_07-27.docx」。
 
 const map = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
+// Thai weekday colours (สีประจำวัน) — each day themed in its auspicious colour.
+const DAY_THEME = {
+  "二": { th: "อังคาร", color: "#d24f86" }, // Tue — rose
+  "三": { th: "พุธ", color: "#1f9a70" }, // Wed — jade
+  "四": { th: "พฤหัสบดี", color: "#e07a24" }, // Thu — orange
+  "五": { th: "ศุกร์", color: "#2f7fce" }, // Fri — sky blue
+  "六": { th: "เสาร์", color: "#7d51c4" }, // Sat — violet
+  "日": { th: "อาทิตย์", color: "#d13b39" }, // Sun — red
+  "一": { th: "จันทร์", color: "#c1901a" }, // Mon — amber
+};
+
+const sectionHead = (kicker, title) =>
+  `<div class="section-head"><span class="section-head__k">${kicker}</span><h2>${title}</h2></div>`;
+
 const TRIP = {
   title: "曼谷行程規劃",
-  eyebrow: "Bangkok Trip · Updated",
-  dates: "2026 / 7 / 21 – 7 / 27",
   preparedFor: "Prepared for Lauren",
-  heroChips: [
-    "✈ JX745 · JX746",
-    "🏨 萬怡→卡爾頓",
-    "📅 7天6夜",
-  ],
-  updates: [
-    { no: "①", text: "Jodd Fairs 已搬遷至 JODD FAIRS Ratchada（MRT 泰國文化中心站旁），舊 Rama 9 址已於 2024 年底歇業，導航請認明新址。" },
-    { no: "②", text: "7/25 泰服動線調整為「先 Wat Arun、後大皇宮」，配合 Bangkok & Blush 店面位置，免去來回過河。" },
-    { no: "③", text: "Jeh O Chula 現場排隊約 1–2 小時，請先用 QueQ App 或 Klook 訂位，訂不到直接改 Kuay Jab Mr. Joe。" },
-    { no: "④", text: "7/23 Si Yaek Huatakhe 咖啡廳營業至 19:00，貓咪遊船需事先 IG 預約（huatakh_cat）。" },
-    { no: "⑤", text: "7/27 回程 JX746 約 17:35 起飛、16:50 關櫃，13:15 前離開市區、14:30 前抵機場（含退稅時間）。" },
-  ],
   flights: {
     out: "7/21 <b>JX745</b>　TPE → BKK",
     back: "7/27 <b>JX746</b>　BKK → TPE（約 17:35 起飛 · 16:50 關櫃）",
@@ -97,7 +97,7 @@ const TRIP = {
           note: "預約最早時段；含妝髮實際需 45–60 分鐘，原排 30 分鐘太趕。同時確認歸還時間與押金規定。",
           maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
         { time: "08:45–10:15", title: "Wat Arun 拍照", loc: "鄭王廟＋Khanom Bueang - Wat Arun", highlight: true,
-          note: "<span class=\"hot\">動線更新</span>：店面位於 Wat Arun 一帶，先拍 Wat Arun 再過河，免走回頭路。早上人少、光線佳。",
+          note: "<span class=\"hot\">拍照動線</span>：店面位於 Wat Arun 一帶，先拍 Wat Arun 再過河，免走回頭路。早上人少、光線佳。",
           maps: [
             { label: "Wat Arun 鄭王廟", q: "Wat Arun Bangkok" },
             { label: "Khanom Bueang - Wat Arun", q: "Khanom Bueang Wat Arun" },
@@ -115,7 +115,7 @@ const TRIP = {
         { time: "15:00–18:00", title: "回飯店休息", loc: "Carlton Hotel Sukhumvit", note: "七月炎熱＋午後易雷陣雨，此時段留室內。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
         { time: "18:30 後", title: "夜市", loc: "JODD FAIRS Ratchada",
-          note: "<span class=\"hot\">地點更新</span>：MRT 泰國文化中心站旁（非舊 Rama 9 址），每日 17:00–01:00。隔壁即 The One Ratchada 火車夜市，可順逛。",
+          note: "<span class=\"hot\">地點</span>：MRT 泰國文化中心站旁（非舊 Rama 9 址），每日 17:00–01:00。隔壁即 The One Ratchada 火車夜市，可順逛。",
           maps: [
             { label: "JODD FAIRS Ratchada", q: "Jodd Fairs Rama 9 Ratchada" },
             { label: "The One Ratchada", q: "The One Ratchada" },
@@ -191,41 +191,48 @@ const TRIP = {
     "Train Night Market Srinagarindra",
     "Si Yaek Huatakhe Cafe & Guesthouse",
   ],
-};
-
-const el = (tag, cls, html) => {
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (html != null) n.innerHTML = html;
-  return n;
+  collection: {
+    name: "Zenith曼谷 IM",
+    curator: "喵金魚",
+    count: 37,
+    url: "https://maps.app.goo.gl/SyKhhSUxBqfiiNby9?g_st=i",
+    // 清單中「行程尚未排入」的口袋名單；已排入日程的點不重複列。完整 37 點見上方連結。
+    pocket: [
+      { name: "Mae Varee", cat: "芒果糯米飯（名店）", q: "Mae Varee Thonglor Bangkok" },
+      { name: "Karun Thai Tea", cat: "泰式茶飲 · CentralWorld", q: "Karun Thai Tea CentralWorld Bangkok" },
+      { name: "Ying Charoen Market", cat: "鮮食市場", q: "Ying Charoen Market Bangkok" },
+      { name: "班蘭蛋捲", cat: "泰式點心", q: "班蘭蛋捲 曼谷" },
+      { name: "Sudjai ทองม้วนสด", cat: "泰式蛋捲", q: "Sudjai thong muan sod Bangkok" },
+      { name: "Let's Relax Spa", cat: "水療（Ella 推薦）", q: "Let's Relax Spa Bangkok" },
+      { name: "TYME Restaurant", cat: "餐廳", q: "TYME Restaurant Bangkok" },
+      { name: "Mae Klong Hua Pla Mo Fai", cat: "魚頭火鍋", q: "Mae Klong Hua Pla Mo Fai Bangkok" },
+      { name: "呑武里市場", cat: "河邊市場", q: "Thonburi Market Bangkok" },
+      { name: "陳瑞興餐室", cat: "老字號餐室", q: "陳瑞興餐室 曼谷" },
+      { name: "泰式椰奶脆餅", cat: "街頭小吃", q: "泰式椰奶脆餅 曼谷" },
+      { name: "Dhou noodles", cat: "粥 · 粿條", q: "Dhou noodles โจ๊ก ก๋วยเตี๋ยว Bangkok" },
+      { name: "JC Kevin Sathorn 酒店", cat: "飯店（備選）", q: "JC Kevin Sathorn Bangkok Hotel" },
+    ],
+  },
 };
 
 function renderHero() {
-  const chips = TRIP.heroChips.map((c) => `<span class="hero__chip">${c}</span>`).join("");
+  const spectrum = TRIP.days
+    .map((d) => {
+      const t = DAY_THEME[d.dow];
+      const n = d.date.split("/")[1] - 20;
+      return `<a class="spec" href="#${d.id}" style="--day:${t.color}" aria-label="Day ${n} · ${d.date} · 星期${d.dow}">
+        <span class="spec__dot"></span><b>${n}</b><i>${d.date}</i>
+      </a>`;
+    })
+    .join("");
   return `<header class="hero"><div class="hero__inner">
-    <div class="hero__eyebrow">${TRIP.eyebrow}</div>
+    <div class="hero__eyebrow">BANGKOK · 2026</div>
     <h1 class="hero__title">${TRIP.title}</h1>
-    <div class="hero__dates">${TRIP.dates}</div>
-    <div class="hero__for">${TRIP.preparedFor}</div>
-    <div class="hero__chips">${chips}</div>
+    <div class="hero__rule"></div>
+    <div class="hero__dates">7.21 — 7.27</div>
+    <div class="hero__for">${TRIP.preparedFor}　·　curated with 喵金魚’s list</div>
+    <div class="hero__spectrum">${spectrum}</div>
   </div></header>`;
-}
-
-function renderDayNav() {
-  const pills = TRIP.days
-    .map((d) => `<a class="daynav__pill" href="#${d.id}" data-target="${d.id}"><b>DAY ${d.date.split("/")[1] - 20}</b><span>${d.date}</span></a>`)
-    .join("");
-  return `<nav class="daynav"><div class="daynav__track">${pills}</div></nav>`;
-}
-
-function renderUpdates() {
-  const items = TRIP.updates
-    .map((u) => `<li><span class="updates__no">${u.no}</span><span>${u.text}</span></li>`)
-    .join("");
-  return `<section class="wrap"><div class="updates">
-    <div class="updates__title"><span class="em">🔔</span>本次更新重點</div>
-    <ul class="updates__list">${items}</ul>
-  </div></section>`;
 }
 
 function renderBasics() {
@@ -234,7 +241,7 @@ function renderBasics() {
     .join("");
   const fixed = TRIP.fixed.map((f) => `<li>${f}</li>`).join("");
   return `<section class="wrap">
-    <div class="section-head"><span class="em">🧭</span><h2>基本資訊</h2></div>
+    ${sectionHead("ESSENTIALS", "基本資訊")}
     <div class="infogrid">
       <div class="infocard"><h3>Flights 航班</h3>
         <div class="inforow">去程　${TRIP.flights.out}</div>
@@ -273,12 +280,13 @@ function renderSlot(s) {
 }
 
 function renderDay(d) {
+  const t = DAY_THEME[d.dow];
   const sub = d.sub ? `<span class="day__sub">${d.sub}</span>` : "";
   const slots = d.slots.map(renderSlot).join("");
-  return `<section class="day wrap" id="${d.id}">
+  return `<section class="day wrap" style="--day:${t.color}">
     <div class="day__head">
       <span class="day__date">${d.date}</span>
-      <span class="day__dow">星期${d.dow}</span>
+      <span class="day__dow"><b>星期${d.dow}</b><i>${t.th}</i></span>
       <span class="day__theme">${d.theme}${sub}</span>
     </div>
     <div class="timeline">${slots}</div>
@@ -295,7 +303,7 @@ function renderCostume() {
     </div>`)
     .join("");
   return `<section class="wrap">
-    <div class="section-head"><span class="em">👘</span><h2>泰服租借建議</h2></div>
+    ${sectionHead("THAI COSTUME", "泰服租借建議")}
     <div class="costume">${cards}</div>
   </section>`;
 }
@@ -308,7 +316,7 @@ function renderChecklist() {
     </label>`)
     .join("");
   return `<section class="wrap">
-    <div class="section-head"><span class="em">✅</span><h2>出發前必辦清單</h2></div>
+    ${sectionHead("BEFORE YOU GO", "出發前必辦清單")}
     <div class="checkwrap">
       <div class="checkbar">
         <span class="checkbar__prog"><b id="prog">0</b> / ${TRIP.checklist.length} 已完成</span>
@@ -322,7 +330,7 @@ function renderChecklist() {
 function renderTrim() {
   const items = TRIP.trim.map((t) => `<li><b>${t.b}</b>：${t.d}</li>`).join("");
   return `<section class="wrap">
-    <div class="section-head"><span class="em">✂️</span><h2>可視體力刪減的點</h2></div>
+    ${sectionHead("OPTIONAL", "可視體力刪減的點")}
     <div class="trim"><ul>${items}</ul></div>
   </section>`;
 }
@@ -332,13 +340,37 @@ function renderTop5() {
     .map((t, i) => `<div class="top5__item"><span class="top5__no">${i + 1}</span><span class="top5__text">${t}</span></div>`)
     .join("");
   return `<section class="wrap">
-    <div class="section-head"><span class="em">⭐</span><h2>本次最推薦 Top 5</h2></div>
+    ${sectionHead("HIGHLIGHTS", "最推薦 Top 5")}
     <div class="top5">${items}</div>
   </section>`;
 }
 
+function renderCollection() {
+  const c = TRIP.collection;
+  const items = c.pocket
+    .map((p) => `<a class="pocketitem" href="${map(p.q)}" target="_blank" rel="noopener">
+      <span class="pocketitem__pin">🗺</span>
+      <span class="pocketitem__body"><b>${p.name}</b><span>${p.cat}</span></span>
+    </a>`)
+    .join("");
+  return `<section class="wrap">
+    ${sectionHead("SAVED PLACES", "收藏清單")}
+    <div class="collection">
+      <div class="collection__head">
+        <div class="collection__meta">
+          <div class="collection__name">${c.name}</div>
+          <div class="collection__by">by ${c.curator} · ${c.count} 個地點</div>
+        </div>
+        <a class="collection__btn" href="${c.url}" target="_blank" rel="noopener">🗺 在 Google 地圖開啟完整清單</a>
+      </div>
+      <div class="collection__note">以下為清單中、行程尚未排入的口袋名單；完整 ${c.count} 個地點請開啟上方連結。</div>
+      <div class="pocket">${items}</div>
+    </div>
+  </section>`;
+}
+
 function renderFooter() {
-  return `<footer class="foot">Bangkok Trip Itinerary（Updated）｜<b>Prepared for Lauren</b></footer>`;
+  return `<footer class="foot">Bangkok Trip Itinerary｜<b>Prepared for Lauren</b></footer>`;
 }
 
 // ---- Checklist persistence ----
@@ -396,44 +428,79 @@ function wireChecklist(root) {
   refresh();
 }
 
-function wireDayNav(root) {
-  const pills = [...root.querySelectorAll(".daynav__pill")];
+// Tabbed navigation: show one panel at a time instead of one long scroll.
+function wireTabs(root) {
+  const nav = root.querySelector(".tabbar");
+  const track = root.querySelector(".tabbar__track");
+  const panelsWrap = root.querySelector(".panels");
+  const pills = [...root.querySelectorAll(".tab")];
   const byTarget = new Map(pills.map((p) => [p.dataset.target, p]));
-  const days = [...root.querySelectorAll(".day")];
+  const panels = [...root.querySelectorAll(".panel")];
+  const panelById = new Map(panels.map((p) => [p.dataset.panel, p]));
+  const first = panels[0].dataset.panel;
 
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        pills.forEach((p) => p.classList.remove("is-active"));
-        const active = byTarget.get(e.target.id);
-        if (active) {
-          active.classList.add("is-active");
-          active.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
-        }
-      });
-    },
-    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-  );
-  days.forEach((d) => io.observe(d));
+  // Center the active pill inside the horizontal track only — never
+  // scrollIntoView(), which would scroll the document to the sticky bar.
+  const centerPill = (pill) => {
+    const t = track.getBoundingClientRect();
+    const p = pill.getBoundingClientRect();
+    track.scrollTo({ left: track.scrollLeft + (p.left - t.left) - (t.width - p.width) / 2, behavior: "smooth" });
+  };
+
+  const activate = (id, scroll) => {
+    if (!panelById.has(id)) id = first;
+    panels.forEach((p) => { p.hidden = p.dataset.panel !== id; });
+    pills.forEach((p) => p.classList.toggle("is-active", p.dataset.target === id));
+    const pill = byTarget.get(id);
+    if (pill) centerPill(pill);
+    if (scroll) {
+      // pin the sticky tab bar to the top, panel content starting just below
+      const y = panelsWrap.offsetTop - nav.offsetHeight;
+      window.scrollTo(0, Math.max(0, y));
+    }
+  };
+
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const id = pill.dataset.target;
+      if (location.hash.slice(1) === id) activate(id, true);
+      else location.hash = id; // triggers hashchange
+    });
+  });
+  window.addEventListener("hashchange", () => activate(location.hash.slice(1), true));
+
+  activate(location.hash.slice(1) || first, false);
+}
+
+function tab(id, top, label, color) {
+  const style = color ? ` style="--day:${color}"` : "";
+  return `<button type="button" class="tab" data-target="${id}"${style}><b>${top}</b><span>${label}</span></button>`;
 }
 
 function main() {
   const app = document.getElementById("app");
-  app.innerHTML =
-    renderHero() +
-    renderDayNav() +
-    renderUpdates() +
-    renderBasics() +
-    TRIP.days.map(renderDay).join("") +
-    renderCostume() +
-    renderChecklist() +
-    renderTrim() +
-    renderTop5() +
-    renderFooter();
+
+  const dayTabs = TRIP.days.map((d) => ({
+    id: d.id,
+    pill: tab(d.id, `DAY ${d.date.split("/")[1] - 20}`, d.date, DAY_THEME[d.dow].color),
+    html: renderDay(d),
+  }));
+  const tabs = [
+    { id: "overview", pill: tab("overview", "PLAN", "總覽"), html: renderBasics() + renderTop5() },
+    ...dayTabs,
+    { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderCostume() + renderChecklist() + renderTrim() },
+    { id: "collection", pill: tab("collection", "LIST", "收藏"), html: renderCollection() },
+  ];
+
+  const bar = `<nav class="tabbar"><div class="tabbar__track">${tabs.map((t) => t.pill).join("")}</div></nav>`;
+  const panels = `<div class="panels">${tabs
+    .map((t) => `<section class="panel" data-panel="${t.id}">${t.html}</section>`)
+    .join("")}</div>`;
+
+  app.innerHTML = renderHero() + bar + panels + renderFooter();
 
   wireChecklist(app);
-  wireDayNav(app);
+  wireTabs(app);
 }
 
 main();
