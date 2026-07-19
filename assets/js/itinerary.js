@@ -87,7 +87,7 @@ const TRIP = {
       ],
     },
     {
-      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日", sub: "",
+      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日＋高空酒吧", sub: "",
       slots: [
         { time: "07:00", title: "出門", loc: "飯店 → Bangkok & Blush", note: "早出門避開人潮與酷熱。" },
         { time: "07:45–08:45", title: "泰服租借＋妝髮", loc: "Bangkok & Blush",
@@ -114,9 +114,12 @@ const TRIP = {
         { time: "14:30–15:30", title: "河岸散步", loc: "Tha Maharaj",
           note: "逛完兩寺步行至河岸商場 Tha Maharaj（Maharaj 碼頭旁），咖啡、河景、伴手禮。",
           maps: [{ label: "Tha Maharaj", q: "Tha Maharaj Bangkok" }] },
-        { time: "16:00 後", title: "回飯店休息（不再外出）", loc: "Carlton Hotel Sukhumvit",
-          note: "七月炎熱＋午後易雷陣雨；<span class=\"hot\">回飯店後不再外出</span>，早點休息。",
+        { time: "16:00–19:30", title: "回飯店休息", loc: "Carlton Hotel Sukhumvit",
+          note: "七月炎熱＋午後易雷陣雨，傍晚在飯店休息、整理，晚上再出門。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
+        { time: "20:00 後", title: "高空酒吧", loc: "Octave Rooftop（曼谷素坤逸萬豪酒店）", highlight: true,
+          note: "曼谷素坤逸萬豪酒店頂樓的 Octave 高空酒吧（Thong Lo 一帶，離飯店近），欣賞 Sukhumvit 夜景；rooftop bar 通常有服儀規定，注意穿著。",
+          maps: [{ label: "高空酒吧 Octave", q: "13.7234261,100.5805352" }] },
       ],
     },
     {
