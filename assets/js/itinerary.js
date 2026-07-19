@@ -95,14 +95,14 @@ const TRIP = {
     {
       id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日＋高空酒吧", sub: "",
       slots: [
-        { time: "08:30", title: "出門", loc: "飯店出發", note: "泰服 10:00 才借，先吃早午餐再過去 Bangkok & Blush。",
-          transit: "🚆 Carlton→TYME：MRT Sukhumvit→Sanam Chai（避塞，~30–40 THB×5）或 GrabVan 230–400／25–35 分" },
-        { time: "09:00–09:45", title: "早午餐", loc: "TYME Restaurant",
-          note: "借泰服前先吃早午餐。",
-          maps: [{ label: "TYME Restaurant", q: "TYME Restaurant Bangkok" }] },
+        { time: "08:00", title: "出門", loc: "飯店出發", note: "泰服 10:00 才借；安樂園 06:00 開，早點過去老城吃早餐，再往 Wat Arun。",
+          transit: "🚆 Carlton→安樂園 MRT Sukhumvit→Sam Yot（直達不轉車、Exit 3 即到，避塞、~40 THB×5）" },
+        { time: "08:30–09:15", title: "早餐", loc: "安樂園 On Lok Yun",
+          note: "90 年老店，泰式烤吐司＋咖椰＋半熟蛋；06:00–14:30，就在 MRT Sam Yot 3 號出口。<br>吃完往河邊過河去泰服店。",
+          maps: [{ label: "安樂園 On Lok Yun", q: "On Lok Yun Bangkok" }] },
         { time: "10:00–11:00", title: "泰服租借＋妝髮", loc: "Bangkok & Blush", fixed: true,
           note: "<span class=\"hot\">已預約 10:00</span>；含妝髮約 45–60 分，順便確認歸還時間與押金規定。",
-          transit: "⛴ TYME→此 過河渡輪 ~5.5 THB×5／~5 分",
+          transit: "🚕 安樂園→Tha Tien 碼頭 Grab／計程車 ~10 分；⛴ 過河渡輪到 Wat Arun／Bangkok & Blush ~5 分",
           maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
         { time: "11:00–12:15", title: "Wat Arun 拍照（泰服）", loc: "鄭王廟＋Khanom Bueang - Wat Arun", highlight: true,
           note: "泰服<span class=\"hot\">只在鄭王廟（Wat Arun）拍</span>；店面就在附近，拍完先歸還再過河，免走回頭路。<br>正午較曬，記得防曬補水。",
@@ -140,13 +140,16 @@ const TRIP = {
     {
       id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋燈展日", sub: "",
       slots: [
-        { time: "09:00–10:00", title: "早餐", loc: "CASA LAPIN x CentralWorld",
-          note: "開逛前先吃早餐，就在 CentralWorld 商圈、與 Big C 步行可到。",
-          transit: "🚆 Carlton→此 BTS Asok→Chidlom（避塞，~30 THB×5）或 GrabVan 120–200／10–20 分",
-          maps: [{ label: "CASA LAPIN x CentralWorld", q: "13.7460053,100.5384739" }] },
+        { time: "09:00–10:00", title: "早餐（二選一）", loc: "CASA LAPIN x CentralWorld ／ 邢泰記 @ One Bangkok",
+          note: "開逛前吃早餐，兩家二選一：<br>① CASA LAPIN：就在 CentralWorld 商圈、與 Big C 步行可到，吃完直接開逛最順。<br>② 邢泰記（One Bangkok The Storeys）：在 Witthayu／Lumphini，需再往 Ratchaprasong 移動 ~10–15 分；<span class=\"hot\">該店營業時間以現場為準（The Storeys 07:00–22:00）</span>。",
+          transit: "① 🚆 Carlton→CASA LAPIN BTS Asok→Chidlom（~30 THB×5）或 GrabVan 120–200／10–20 分<br>② 🚆 Carlton→One Bangkok MRT Sukhumvit→Lumphini（~30 THB×5）；早餐後→Big C GrabVan ~10–15 分",
+          maps: [
+            { label: "CASA LAPIN x CentralWorld", q: "13.7460053,100.5384739" },
+            { label: "邢泰記 @ One Bangkok", q: "邢泰記 One Bangkok The Storeys" },
+          ] },
         { time: "10:00–16:30", title: "伴手禮採買＋逛街", loc: "Big C Ratchadamri → CentralWorld",
           note: "早餐後直接開逛：Big C 一次買齊伴手禮，再步行去 CentralWorld 順逛。<br>逛的時候順喝手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。",
-          transit: "🚶 早餐處→Big C→CentralWorld 都在同商圈、步行可到",
+          transit: "🚶 Big C→CentralWorld 步行 ~5 分（同商圈）",
           maps: [
             { label: "Big C Ratchadamri", q: "Big C Ratchadamri" },
             { label: "CentralWorld", q: "CentralWorld Bangkok" },
