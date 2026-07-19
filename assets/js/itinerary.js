@@ -182,6 +182,48 @@ const TRIP = {
     "Samyan Mitrtown 燈飾展（The Luminous Bloom）",
     "Si Yaek Huatakhe Cafe & Guesthouse",
   ],
+  souvenir: {
+    intro: "以 Big C Ratchadamri 為主戰場一次買齊、退稅集中；香氛保養精緻款到 CentralWorld 專櫃。價格為大概區間（THB），★＝最多人推、回購率高。",
+    top: "小老闆海苔、Koh-Kae 大哥花生、手標茶 ChaTraMue 即溶泰奶、虎標萬金油、蛇牌爽身粉",
+    cats: [
+      { name: "零食餅乾", where: "Big C", items: [
+        { n: "小老闆海苔", p: "25–99", star: true },
+        { n: "Koh-Kae 大哥花生", p: "20–40", star: true },
+        { n: "Bento 魷魚片", p: "20–30" },
+        { n: "芒果乾／榴槤乾（Doikham、藍象）", p: "155–369", note: "Big C 比機場便宜" },
+        { n: "Kunna 椰子脆片", p: "40–60" },
+        { n: "樂事鹹蛋黃洋芋片", p: "35–40" },
+      ] },
+      { name: "泡麵與泰式調味", where: "Big C", items: [
+        { n: "MAMA 泡麵（冬陰功／打拋豬）", p: "6–20", star: true },
+        { n: "藍象料理包", p: "50–80", star: true },
+        { n: "Mae Pranom 海鮮沾醬", p: "40–70" },
+        { n: "LOBO 咖哩醬", p: "30–60" },
+        { n: "魚露", p: "30–50" },
+      ] },
+      { name: "飲品沖泡", where: "Big C／CentralWorld", items: [
+        { n: "手標茶 ChaTraMue 即溶泰奶／茶葉罐", p: "60–120", star: true, note: "CentralWorld 有門市" },
+        { n: "Birdy／Nescafe 三合一咖啡", p: "65–100" },
+        { n: "蝶豆花乾", p: "50–80" },
+        { n: "泰奶粉罐裝", p: "100–150" },
+      ] },
+      { name: "藥妝保養（回購率最高）", where: "Big C／Boots", items: [
+        { n: "虎標萬金油 Tiger Balm", p: "40–90", star: true, note: "比台灣/機場便宜" },
+        { n: "蛇牌爽身粉 Prickly Heat", p: "35–60", star: true },
+        { n: "Counterpain 痠痛藥膏", p: "50–90" },
+        { n: "五蜈蚣標止咳丸", p: "30–50" },
+        { n: "Mistine 彩妝", p: "89–150" },
+        { n: "Snail White", p: "80–150", note: "Boots 較齊" },
+        { n: "臥佛牌青草藥膏", p: "40–80" },
+      ] },
+      { name: "香氛雜貨（精緻款）", where: "CentralWorld", items: [
+        { n: "Karmakamet 香皂／擴香", p: "80–150+", star: true },
+        { n: "THANN 護手霜", p: "250–400" },
+        { n: "HARNN 禮盒", p: "500+" },
+        { n: "大象褲", p: "<100", note: "市集比百貨便宜" },
+      ] },
+    ],
+  },
   collection: {
     name: "Zenith曼谷 IM",
     curator: "喵金魚",
@@ -358,6 +400,24 @@ function renderTop5() {
   </section>`;
 }
 
+function renderSouvenir() {
+  const s = TRIP.souvenir;
+  const cats = s.cats
+    .map((c) => {
+      const items = c.items
+        .map((i) => `<li>${i.star ? "★ " : ""}${i.n}　<b>${i.p} THB</b>${i.note ? `（${i.note}）` : ""}</li>`)
+        .join("");
+      return `<div class="infocard"><h3>${c.name}　<small>🛒 ${c.where}</small></h3><ul class="fixedlist">${items}</ul></div>`;
+    })
+    .join("");
+  return `<section class="wrap">
+    ${sectionHead("SOUVENIRS", "伴手禮建議")}
+    <div class="collection__note">${s.intro}</div>
+    <div class="infocard infocard--wide"><h3>必買 5 樣</h3><ul class="fixedlist"><li>★ ${s.top}</li></ul></div>
+    <div class="infogrid">${cats}</div>
+  </section>`;
+}
+
 function renderCollection() {
   const c = TRIP.collection;
   const items = c.pocket
@@ -507,6 +567,7 @@ function main() {
     { id: "overview", pill: tab("overview", "PLAN", "總覽"), html: renderBasics() + renderTop5() },
     ...dayTabs,
     { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderCostume() + renderChecklist() },
+    { id: "gifts", pill: tab("gifts", "GIFTS", "伴手禮"), html: renderSouvenir() },
     { id: "collection", pill: tab("collection", "LIST", "收藏"), html: renderCollection() },
   ];
 
