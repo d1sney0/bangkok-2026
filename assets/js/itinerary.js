@@ -22,7 +22,7 @@ const TRIP = {
   preparedFor: "Prepared for Lauren",
   flights: {
     out: "7/21 <b>JX745</b>　TPE → BKK",
-    back: "7/27 <b>JX746</b>　BKK → TPE（約 17:35 起飛 · 16:50 關櫃）",
+    back: "7/27 <b>JX746</b>　BKK → TPE（17:50 起飛 · 16:50 關櫃）",
   },
   hotels: [
     { dates: "7/21–7/24", name: "曼谷素萬那普機場萬怡酒店", q: "Courtyard by Marriott Bangkok Suvarnabhumi Airport" },
@@ -168,11 +168,11 @@ const TRIP = {
     { t: "下載 Grab／Bolt", d: "叫車、夜市回程備用。" },
   ],
   top5: [
-    "Wat Arun＋泰服拍照（新動線：早上先拍）",
-    "CentralWorld 逛街",
-    "Big C Ratchadamri 伴手禮採買",
-    "Samyan Mitrtown 燈飾展（The Luminous Bloom）",
-    "Si Yaek Huatakhe Cafe & Guesthouse",
+    "Wat Arun＋泰服拍照（7/25 早上先拍，過河再逛寺）",
+    "大皇宮＋臥佛寺（古城雙寺）",
+    "Octave 高空酒吧（Sukhumvit 夜景）",
+    "Jeh O Chula 米其林火鍋＋Samyan Mitrtown 燈飾展",
+    "Big C＋CentralWorld 伴手禮血拚",
   ],
   souvenir: {
     intro: "以 Big C Ratchadamri 為主戰場一次買齊、退稅集中；香氛保養精緻款到 CentralWorld 專櫃。價格為大概區間（THB），★＝最多人推、回購率高。",
