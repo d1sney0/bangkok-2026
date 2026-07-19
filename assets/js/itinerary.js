@@ -170,11 +170,13 @@ const TRIP = {
       q: "Sense of Thai Costume Bangkok" },
   ],
   checklist: [
-    { t: "Bangkok & Blush", d: "官網預約最早時段，確認店面確切位置、歸還時間與押金（泰服只在 Wat Arun 拍）。" },
+    { t: "簽證 APP", d: "出發前用簽證 APP 辦好。" },
+    { t: "現金／外幣", d: "每人帶 20,000 泰銖等值外幣（入境可能抽查財力）。" },
+    { t: "Bangkok & Blush 泰服", d: "已預訂 7/25 10:00；出發前確認歸還時間與押金。" },
+    { t: "NEUA.NEUR.BKK", d: "已訂位 7/24 18:30。" },
     { t: "Jeh O Chula", d: "QueQ App 或 Klook 訂位（7/26 晚）。" },
-    { t: "NEUA.NEUR.BKK", d: "訂位 7/24 18:30。" },
     { t: "貓咪遊船（如要搭）", d: "IG huatakh_cat 預約 7/23 17:30 場，並確認會議可否準時結束。" },
-    { t: "下載 Grab／Bolt", d: "7/26 夜市回程備用。" },
+    { t: "下載 Grab／Bolt", d: "叫車、夜市回程備用。" },
     { t: "退稅文件", d: "購物時索取 P.P.10 表格＋收據，回程日先至海關驗貨再托運。" },
   ],
   trim: [
