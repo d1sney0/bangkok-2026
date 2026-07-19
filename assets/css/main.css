@@ -317,6 +317,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .slot__loc { font-size: 0.85rem; color: var(--ink-soft); margin: 3px 0; }
 .slot__note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 5px; }
 .slot__note .hot { color: color-mix(in srgb, var(--day) 62%, #000); font-weight: 600; }
+.slot__transit {
+  font-size: 0.79rem;
+  color: var(--ink-faint);
+  line-height: 1.5;
+  margin-top: 7px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+}
 
 /* map chips */
 .maps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
