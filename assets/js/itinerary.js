@@ -55,9 +55,7 @@ const TRIP = {
       id: "d2", date: "7/22", dow: "三", theme: "CRA Training 日", sub: "不進市區",
       slots: [
         { time: "09:00–17:00", title: "CRA Training", loc: "固定行程", note: "白天不安排額外景點。", fixed: true },
-        { time: "19:00–21:00", title: "Welcome Dinner", loc: "固定行程", note: "固定行程。", fixed: true },
-        { time: "21:15 後", title: "按摩放鬆", loc: "THE FOREST MASSAGE", note: "建議 Foot 或 Thai Massage，避免太晚奔波。",
-          maps: [{ label: "THE FOREST MASSAGE", q: "The Forest Massage Bangkok" }] },
+        { time: "19:00–21:00", title: "Welcome Dinner", loc: "飯店", note: "固定行程，於飯店。", fixed: true },
       ],
     },
     {
