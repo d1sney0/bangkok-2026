@@ -379,19 +379,20 @@ function renderTop5() {
 
 function renderSouvenir() {
   const s = TRIP.souvenir;
+  const img = (q) => `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(q + " 泰國")}`;
   const cats = s.cats
     .map((c) => {
       const items = c.items
-        .map((i) => `<li>${i.star ? "★ " : ""}${i.n}　<b>${i.p} THB</b>${i.note ? `（${i.note}）` : ""}</li>`)
+        .map((i) => `<li>${i.star ? "★ " : ""}${i.n}　<b>${i.p} THB</b>${i.note ? `（${i.note}）` : ""} <a class="mapchip" href="${img(i.n)}" target="_blank" rel="noopener">🔍 查圖</a></li>`)
         .join("");
-      return `<div class="infocard"><h3>${c.name}　<small>🛒 ${c.where}</small></h3><ul class="fixedlist">${items}</ul></div>`;
+      return `<details class="infocard"><summary><b>${c.name}</b>　🛒 ${c.where}（${c.items.length}）</summary><ul class="fixedlist">${items}</ul></details>`;
     })
     .join("");
   return `<section class="wrap">
     ${sectionHead("SOUVENIRS", "伴手禮建議")}
-    <div class="collection__note">${s.intro}</div>
+    <div class="collection__note">${s.intro}　每項 🔍 可點開查 Google 圖片對照包裝；點分類標題可展開／收合。</div>
     <div class="infocard infocard--wide"><h3>必買 5 樣</h3><ul class="fixedlist"><li>★ ${s.top}</li></ul></div>
-    <div class="infogrid">${cats}</div>
+    <div style="display:grid;gap:12px;margin-top:14px">${cats}</div>
   </section>`;
 }
 
