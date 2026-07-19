@@ -59,14 +59,11 @@ const TRIP = {
       ],
     },
     {
-      id: "d3", date: "7/23", dow: "四", theme: "Engagement Meeting 日", sub: "Si Yaek Huatakhe",
+      id: "d3", date: "7/23", dow: "四", theme: "Engagement Meeting 日", sub: "",
       slots: [
-        { time: "09:00–16:30", title: "Engagement Meeting", loc: "固定行程", note: "白天不安排額外景點。", fixed: true },
-        { time: "17:15–18:45", title: "老運河社區咖啡／散步", loc: "Si Yaek Huatakhe Cafe & Guesthouse",
-          note: "咖啡廳<span class=\"hot\">營業至 19:00</span>，請直接前往勿耽擱。貓咪遊船需事先 IG（huatakh_cat）預約，日落船班約 16:30／17:30；若想搭 17:30 場，需確認會議能否準時或提早結束。",
-          maps: [{ label: "Si Yaek Huatakhe Cafe & Guesthouse", q: "Si Yaek Huatakhe Cafe and Guesthouse" }] },
-        { time: "19:00–20:30", title: "晚餐／回飯店", loc: "飯店周邊",
-          note: "Huatakhe 一帶 19:00 後店家多已打烊，晚餐建議回飯店附近解決。隔天要搬飯店，早點休息。" },
+        { time: "09:00–16:30", title: "Engagement Meeting", loc: "飯店", note: "白天在飯店開會，不安排額外景點。", fixed: true },
+        { time: "19:00–20:30", title: "晚餐", loc: "飯店周邊",
+          note: "會後在飯店附近解決晚餐；隔天要搬飯店，早點休息。" },
       ],
     },
     {
