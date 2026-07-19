@@ -39,11 +39,11 @@ const TRIP = {
     {
       id: "d1", date: "7/21", dow: "二", theme: "抵達日", sub: "機場飯店周邊輕鬆行程",
       slots: [
-        { time: "抵達後", title: "入住／整理行李", loc: "曼谷素萬那普機場萬怡酒店", note: "以休息為主。",
+        { time: "抵達後", title: "入住／整理行李", loc: "曼谷素萬那普機場萬怡酒店", note: "以休息為主。🚌 機場→飯店免費接駁 ~10–15 分。",
           maps: [{ label: "萬怡酒店", q: "Courtyard by Marriott Bangkok Suvarnabhumi Airport" }] },
         { time: "18:00–20:00", title: "晚餐（已安排）", loc: "飯店", note: "固定行程。", fixed: true },
         { time: "20:00–22:00", title: "附近小逛＋放鬆", loc: "Let's Relax Spa／Durianism café（Little Walk Lat Krabang）／Robinson Lifestyle Suvarnabhumi",
-          note: "若搭機疲累，建議只安排 Let's Relax Spa 按摩＋Durianism 榴槤咖啡甜點；有力氣再逛 Robinson。兩點就在 Little Walk Lat Krabang 一帶，離機場飯店近。",
+          note: "若搭機疲累，建議只安排 Let's Relax Spa 按摩＋Durianism 榴槤咖啡甜點；有力氣再逛 Robinson。兩點就在 Little Walk Lat Krabang 一帶，離機場飯店近。🚕 飯店→此 Grab 1 台 60–90 THB／10–15 分。",
           maps: [
             { label: "Let's Relax Spa（Lat Krabang）", q: "13.7229644,100.7273072" },
             { label: "Durianism café（Little Walk Lat Krabang）", q: "13.7228415,100.7258645" },
@@ -63,7 +63,7 @@ const TRIP = {
       slots: [
         { time: "09:00–16:30", title: "Engagement Meeting", loc: "飯店", note: "白天在飯店開會，不安排額外景點。", fixed: true },
         { time: "19:00–20:30", title: "晚餐", loc: "飯店周邊",
-          note: "會後在飯店附近解決晚餐；隔天要搬飯店，早點休息。" },
+          note: "會後在飯店附近解決晚餐；隔天要搬飯店，早點休息。🚶 飯店附近步行可到。" },
       ],
     },
     {
@@ -73,25 +73,25 @@ const TRIP = {
           note: "早退房把西邊市場整段挪到上午，趕 16:00 按摩更從容。可先寄放行李。<span class=\"hot\">4 人＋行李建議叫 Grab GrabVan／XL（6 人座），約 800–1,200 THB＋過路費、離峰約 40 分。</span>",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
         { time: "10:00–13:00", title: "吞武里市場", loc: "吞武里市場（河邊市場）",
-          note: "08:00 退房、寄完行李上午就去；位於西側 Thonburi、離飯店較遠，早上車流較輕、也留足往返緩衝趕 16:00 按摩（13:00 回程約 1 小時，午後在飯店附近休息）。午餐可在市場解決，出發前確認營業日。",
+          note: "08:00 退房、寄完行李上午就去；位於西側 Thonburi、離飯店較遠，早上車流較輕、也留足往返緩衝趕 16:00 按摩（13:00 回程約 1 小時，午後在飯店附近休息）。午餐可在市場解決，出發前確認營業日。🚕 Carlton→此 GrabCar 300–450 THB／40–60 分。",
           maps: [{ label: "吞武里市場", q: "13.7847965,100.3971688" }] },
-        { time: "16:00–18:00", title: "按摩（已預約）", loc: "AThai&massage (by aspa)", note: "固定行程。", fixed: true },
+        { time: "16:00–18:00", title: "按摩（已預約）", loc: "AThai&massage (by aspa)", note: "固定行程。🚕 市場→此 GrabCar 300–450 THB／40–60 分。", fixed: true },
         { time: "18:30–20:00", title: "晚餐", loc: "NEUA.NEUR.BKK",
-          note: "未訂到位、現場候位；店內僅約 5 桌、最後點餐 20:30。<span class=\"hot\">人太多就改附近備案。</span>",
+          note: "未訂到位、現場候位；店內僅約 5 桌、最後點餐 20:30。<span class=\"hot\">人太多就改附近備案。</span>🚕 按摩→此 GrabCar 60–100 THB／10–20 分（或 BTS）。",
           maps: [{ label: "NEUA.NEUR.BKK", q: "NEUA NEUR BKK Bangkok" }] },
-        { time: "20:00 後", title: "逛街", loc: "CentralWorld", note: "可先為 7/26 伴手禮探路。",
+        { time: "20:00 後", title: "逛街", loc: "CentralWorld", note: "可先為 7/26 伴手禮探路。🚕 NEUA→此 GrabCar 100–160 THB／20–30 分（或 BTS Ekkamai→Chidlom）；回 Carlton 60–100 THB 或 BTS Chidlom→Asok。",
           maps: [{ label: "CentralWorld", q: "CentralWorld Bangkok" }] },
       ],
     },
     {
       id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日＋高空酒吧", sub: "",
       slots: [
-        { time: "08:30", title: "出門", loc: "飯店出發", note: "泰服 10:00 才借，先去吃早午餐再過去 Bangkok & Blush。" },
+        { time: "08:30", title: "出門", loc: "飯店出發", note: "泰服 10:00 才借，先去吃早午餐再過去 Bangkok & Blush。🚆 Carlton→TYME：早上 MRT Sukhumvit→Sanam Chai（避塞，~30–40 THB×5）或 GrabVan 230–400／25–35 分。" },
         { time: "09:00–09:45", title: "早午餐", loc: "TYME Restaurant",
           note: "借泰服前先吃早午餐。",
           maps: [{ label: "TYME Restaurant", q: "TYME Restaurant Bangkok" }] },
         { time: "10:00–11:00", title: "泰服租借＋妝髮", loc: "Bangkok & Blush", fixed: true,
-          note: "<span class=\"hot\">已預約 10:00</span>；含妝髮約 45–60 分鐘，同時確認歸還時間與押金規定。",
+          note: "<span class=\"hot\">已預約 10:00</span>；含妝髮約 45–60 分鐘，同時確認歸還時間與押金規定。⛴ TYME→此 過河渡輪 ~5.5 THB×5／~5 分。",
           maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
         { time: "11:00–12:15", title: "Wat Arun 拍照（泰服）", loc: "鄭王廟＋Khanom Bueang - Wat Arun", highlight: true,
           note: "泰服<span class=\"hot\">只在鄭王廟（Wat Arun）拍</span>；店面就在附近，拍完先歸還、再過河，免走回頭路。中午較曬，記得防曬補水。",
@@ -118,7 +118,7 @@ const TRIP = {
           note: "河岸泰式海鮮，已訂位 18:00；就在 Tha Maharaj，吃完再往 Sukhumvit 高空酒吧。",
           maps: [{ label: "Savoey @Tha Maharaj", q: "13.7553002,100.4887332" }] },
         { time: "20:00 後", title: "高空酒吧", loc: "Octave Rooftop（曼谷素坤逸萬豪酒店）", highlight: true,
-          note: "曼谷素坤逸萬豪酒店頂樓的 Octave 高空酒吧（Thong Lo 一帶，離飯店近），欣賞 Sukhumvit 夜景；rooftop bar 通常有服儀規定，注意穿著。",
+          note: "曼谷素坤逸萬豪酒店頂樓的 Octave 高空酒吧（Thong Lo 一帶，離飯店近），欣賞 Sukhumvit 夜景；rooftop bar 通常有服儀規定，注意穿著。🚕 Tha Maharaj→此 GrabVan 290–500 THB／30–45 分；回 Carlton GrabVan 140–220 或 BTS Thong Lo→Asok。",
           maps: [{ label: "高空酒吧 Octave", q: "13.7234261,100.5805352" }] },
       ],
     },
@@ -126,20 +126,20 @@ const TRIP = {
       id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋燈展日", sub: "",
       slots: [
         { time: "10:00–13:00", title: "伴手禮採買", loc: "Big C Ratchadamri",
-          note: "不排早午餐，直接開逛；Big C 一次買齊伴手禮。",
+          note: "不排早午餐，直接開逛；Big C 一次買齊伴手禮。🚆 Carlton→此 BTS Asok→Chidlom（避塞，~30 THB×5）或 GrabVan 120–200／10–20 分。",
           maps: [{ label: "Big C Ratchadamri", q: "Big C Ratchadamri" }] },
         { time: "13:00–16:30", title: "CentralWorld 逛街", loc: "CentralWorld",
-          note: "順逛、為伴手禮探路；逛的時候順喝泰式手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。",
+          note: "順逛、為伴手禮探路；逛的時候順喝泰式手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。🚶 Big C→此 步行 ~5 分。",
           maps: [
             { label: "CentralWorld", q: "CentralWorld Bangkok" },
             { label: "Cha Tra Mue 泰式手標茶", q: "13.7469281,100.5386487" },
             { label: "Karun Thai Tea", q: "Karun Thai Tea CentralWorld Bangkok" },
           ] },
         { time: "18:00–19:30", title: "晚餐", loc: "Jeh O Chula",
-          note: "Jeh O 16:30 開始營業、<span class=\"hot\">現場排 1–2 小時</span>；用 QueQ App 排隊或提早 17:00 到避峰，別現場賭排隊，否則排到太晚。",
+          note: "Jeh O 16:30 開始營業、<span class=\"hot\">現場排 1–2 小時</span>；用 QueQ App 排隊或提早 17:00 到避峰，別現場賭排隊，否則排到太晚。🚕 CentralWorld→此 GrabVan 120–200 THB／10–20 分。",
           maps: [{ label: "Jeh O Chula", q: "Jeh O Chula" }] },
         { time: "20:00 後", title: "Samyan Mitrtown 燈飾展＋Banthat Thong 美食街", loc: "Samyan Mitrtown（Sam Yan MRT）",
-          note: "Jeh O 就在 Banthat Thong 一帶，晚餐後步行約 5–10 分到 Samyan Mitrtown。<span class=\"hot\">Lantern Art Festival「The Luminous Bloom」7/17–7/31、每日 10:00–22:00、週日照開、免費</span>，大型花卉燈飾光雕可拍照；商場室內，下雨也可行。想吃攤位小吃就逛 Banthat Thong 街屋。回程叫 Grab。",
+          note: "Jeh O 就在 Banthat Thong 一帶，晚餐後步行約 5–10 分到 Samyan Mitrtown。<span class=\"hot\">Lantern Art Festival「The Luminous Bloom」7/17–7/31、每日 10:00–22:00、週日照開、免費</span>，大型花卉燈飾光雕可拍照；商場室內，下雨也可行。想吃攤位小吃就逛 Banthat Thong 街屋。🚶 Jeh O→此步行 5–10 分；回 Carlton 🚆 MRT Sam Yan→Sukhumvit ~25 THB×5／~10 分（或 GrabVan 140–220）。",
           maps: [
             { label: "Samyan Mitrtown", q: "Samyan Mitrtown Bangkok" },
             { label: "Banthat Thong 美食街", q: "Banthadthong Road Bangkok" },
@@ -150,7 +150,7 @@ const TRIP = {
       id: "d7", date: "7/27", dow: "一", theme: "回程日", sub: "Asoke 周邊補貨",
       slots: [
         { time: "09:30–12:30", title: "輕鬆採買／散步", loc: "Foodland Sukhumvit 16／butter bakery asoke／Terminal 21",
-          note: "不排遠點；午餐在 Terminal 21 快速解決。",
+          note: "不排遠點；午餐在 Terminal 21 快速解決。🚶 Foodland／butter／Terminal 21 都在 Asok，步行可到。",
           maps: [
             { label: "Foodland Sukhumvit 16", q: "Foodland Sukhumvit 16" },
             { label: "butter bakery asoke", q: "Butter Bakery Asoke" },
@@ -161,14 +161,6 @@ const TRIP = {
           maps: [{ label: "Suvarnabhumi Airport", q: "Suvarnabhumi Airport" }] },
       ],
     },
-  ],
-  costume: [
-    { tier: "首選", name: "Bangkok & Blush", first: true,
-      desc: "已在收藏清單中，店面位於老城區 Wat Arun 一帶，官網（SimplyBook）可預約時段。泰服只在 Wat Arun（鄭王廟）拍攝，拍完就近歸還，再過河去大皇宮、臥佛寺（不穿泰服）。",
-      q: "Bangkok & Blush" },
-    { tier: "備選", name: "Sense of Thai Costume",
-      desc: "若 Bangkok & Blush 時段不理想可作備選（熱門店需提前預約）。價格與方案以店家實際公告為準。",
-      q: "Sense of Thai Costume Bangkok" },
   ],
   checklist: [
     { t: "簽證 APP", d: "出發前用簽證 APP 辦好。" },
@@ -353,21 +345,6 @@ function renderDay(d) {
     </div>
     ${renderDayMap(d)}
     <div class="timeline">${slots}</div>
-  </section>`;
-}
-
-function renderCostume() {
-  const cards = TRIP.costume
-    .map((c) => `<div class="costume__card${c.first ? " is-first" : ""}">
-      <div class="costume__tier">${c.tier}</div>
-      <div class="costume__name">${c.name}</div>
-      <div class="costume__desc">${c.desc}</div>
-      <div class="maps"><a class="mapchip" href="${map(c.q)}" target="_blank" rel="noopener">🗺 ${c.name}</a></div>
-    </div>`)
-    .join("");
-  return `<section class="wrap">
-    ${sectionHead("THAI COSTUME", "泰服租借建議")}
-    <div class="costume">${cards}</div>
   </section>`;
 }
 
@@ -566,7 +543,7 @@ function main() {
   const tabs = [
     { id: "overview", pill: tab("overview", "PLAN", "總覽"), html: renderBasics() + renderTop5() },
     ...dayTabs,
-    { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderCostume() + renderChecklist() },
+    { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderChecklist() },
     { id: "gifts", pill: tab("gifts", "GIFTS", "伴手禮"), html: renderSouvenir() },
     { id: "collection", pill: tab("collection", "LIST", "收藏"), html: renderCollection() },
   ];
