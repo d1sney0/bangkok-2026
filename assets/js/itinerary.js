@@ -140,9 +140,13 @@ const TRIP = {
     {
       id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋燈展日", sub: "",
       slots: [
+        { time: "09:00–10:00", title: "早餐", loc: "CASA LAPIN x CentralWorld",
+          note: "開逛前先吃早餐，就在 CentralWorld 商圈、與 Big C 步行可到。",
+          transit: "🚆 Carlton→此 BTS Asok→Chidlom（避塞，~30 THB×5）或 GrabVan 120–200／10–20 分",
+          maps: [{ label: "CASA LAPIN x CentralWorld", q: "13.7460053,100.5384739" }] },
         { time: "10:00–16:30", title: "伴手禮採買＋逛街", loc: "Big C Ratchadamri → CentralWorld",
-          note: "不排早午餐，直接開逛：Big C 一次買齊伴手禮，再步行去 CentralWorld 順逛。<br>逛的時候順喝手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。",
-          transit: "🚆 Carlton→Big C：BTS Asok→Chidlom（避塞，~30 THB×5）或 GrabVan 120–200／10–20 分<br>🚶 Big C→CentralWorld 步行 ~5 分",
+          note: "早餐後直接開逛：Big C 一次買齊伴手禮，再步行去 CentralWorld 順逛。<br>逛的時候順喝手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。",
+          transit: "🚶 早餐處→Big C→CentralWorld 都在同商圈、步行可到",
           maps: [
             { label: "Big C Ratchadamri", q: "Big C Ratchadamri" },
             { label: "CentralWorld", q: "CentralWorld Bangkok" },
