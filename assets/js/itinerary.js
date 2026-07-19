@@ -125,12 +125,10 @@ const TRIP = {
     {
       id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋夜市日", sub: "",
       slots: [
-        { time: "10:00–12:00", title: "早午餐", loc: "Baan Prapa", note: "環境漂亮，悠閒安排。",
-          maps: [{ label: "Baan Prapa", q: "Baan Prapa Bangkok" }] },
-        { time: "12:30–14:30", title: "伴手禮採買", loc: "Big C Ratchadamri",
-          note: "室內行程，剛好避開午後雷陣雨；Big C 一次買齊。",
+        { time: "10:00–13:00", title: "伴手禮採買", loc: "Big C Ratchadamri",
+          note: "不排早午餐，直接開逛；Big C 一次買齊伴手禮。",
           maps: [{ label: "Big C Ratchadamri", q: "Big C Ratchadamri" }] },
-        { time: "14:30–16:30", title: "CentralWorld 逛街", loc: "CentralWorld",
+        { time: "13:00–16:30", title: "CentralWorld 逛街", loc: "CentralWorld",
           note: "順逛、為伴手禮探路；逛的時候順喝泰式手標茶 Cha Tra Mue 與 Karun Thai Tea（都在商圈內）。",
           maps: [
             { label: "CentralWorld", q: "CentralWorld Bangkok" },
