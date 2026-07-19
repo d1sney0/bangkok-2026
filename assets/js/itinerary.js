@@ -69,10 +69,11 @@ const TRIP = {
     {
       id: "d4", date: "7/24", dow: "五", theme: "搬飯店＋吞武里市場＋按摩", sub: "",
       slots: [
-        { time: "上午", title: "退房／移動至 Carlton", loc: "曼谷素坤逸卡爾頓酒店", note: "可先寄放行李。",
+        { time: "08:00", title: "退房／移動至 Carlton", loc: "曼谷素坤逸卡爾頓酒店",
+          note: "早退房把西邊市場整段挪到上午，趕 16:00 按摩更從容。可先寄放行李。<span class=\"hot\">4 人＋行李建議叫 Grab GrabVan／XL（6 人座），約 800–1,200 THB＋過路費、離峰約 40 分。</span>",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
-        { time: "12:00–15:00", title: "吞武里市場", loc: "吞武里市場（河邊市場）",
-          note: "寄完行李改去吞武里市場。位於西側 Thonburi、離飯店較遠，留足往返時間趕上 16:00 按摩；午餐可在市場解決，出發前確認營業日。",
+        { time: "10:00–13:00", title: "吞武里市場", loc: "吞武里市場（河邊市場）",
+          note: "08:00 退房、寄完行李上午就去；位於西側 Thonburi、離飯店較遠，早上車流較輕、也留足往返緩衝趕 16:00 按摩（13:00 回程約 1 小時，午後在飯店附近休息）。午餐可在市場解決，出發前確認營業日。",
           maps: [{ label: "吞武里市場", q: "13.7847965,100.3971688" }] },
         { time: "16:00–18:00", title: "按摩（已預約）", loc: "AThai&massage (by aspa)", note: "固定行程。", fixed: true },
         { time: "18:30–20:00", title: "晚餐", loc: "NEUA.NEUR.BKK",
@@ -119,7 +120,7 @@ const TRIP = {
       ],
     },
     {
-      id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋夜市日", sub: "",
+      id: "d6", date: "7/26", dow: "日", theme: "吃貨＋血拚＋燈展日", sub: "",
       slots: [
         { time: "10:00–13:00", title: "伴手禮採買", loc: "Big C Ratchadamri",
           note: "不排早午餐，直接開逛；Big C 一次買齊伴手禮。",
@@ -132,11 +133,14 @@ const TRIP = {
             { label: "Karun Thai Tea", q: "Karun Thai Tea CentralWorld Bangkok" },
           ] },
         { time: "18:00–19:30", title: "晚餐", loc: "Jeh O Chula",
-          note: "Jeh O 17:30 開始營業、<span class=\"hot\">現場排 1–2 小時</span>；請先用 QueQ App 或 Klook 訂位，別現場賭排隊，否則趕不上夜市。",
+          note: "Jeh O 16:30 開始營業、<span class=\"hot\">現場排 1–2 小時</span>；用 QueQ App 排隊或提早 17:00 到避峰，別現場賭排隊，否則排到太晚。",
           maps: [{ label: "Jeh O Chula", q: "Jeh O Chula" }] },
-        { time: "20:00 後", title: "夜市", loc: "朱拉隆功夜市",
-          note: "近朱拉隆功大學／Sam Yan MRT 一帶；出發前再確認營業日與時間，回程叫 Grab。",
-          maps: [{ label: "朱拉隆功夜市", q: "朱拉隆功夜市 Bangkok" }] },
+        { time: "20:00 後", title: "Samyan Mitrtown 燈飾展＋Banthat Thong 美食街", loc: "Samyan Mitrtown（Sam Yan MRT）",
+          note: "Jeh O 就在 Banthat Thong 一帶，晚餐後步行約 5–10 分到 Samyan Mitrtown。<span class=\"hot\">Lantern Art Festival「The Luminous Bloom」7/17–7/31、每日 10:00–22:00、週日照開、免費</span>，大型花卉燈飾光雕可拍照；商場室內，下雨也可行。想吃攤位小吃就逛 Banthat Thong 街屋。回程叫 Grab。",
+          maps: [
+            { label: "Samyan Mitrtown", q: "Samyan Mitrtown Bangkok" },
+            { label: "Banthat Thong 美食街", q: "Banthadthong Road Bangkok" },
+          ] },
       ],
     },
     {
@@ -181,7 +185,7 @@ const TRIP = {
     "Wat Arun＋泰服拍照（新動線：早上先拍）",
     "CentralWorld 逛街",
     "Big C Ratchadamri 伴手禮採買",
-    "朱拉隆功夜市",
+    "Samyan Mitrtown 燈飾展（The Luminous Bloom）",
     "Si Yaek Huatakhe Cafe & Guesthouse",
   ],
   collection: {
