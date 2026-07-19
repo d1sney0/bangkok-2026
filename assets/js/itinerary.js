@@ -90,28 +90,29 @@ const TRIP = {
       ],
     },
     {
-      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日（動線已更新）＋夜市", sub: "",
+      id: "d5", date: "7/25", dow: "六", theme: "泰服拍照日＋夜市", sub: "",
       slots: [
         { time: "07:00", title: "出門", loc: "飯店 → Bangkok & Blush", note: "早出門避開人潮與酷熱。" },
         { time: "07:45–08:45", title: "泰服租借＋妝髮", loc: "Bangkok & Blush",
           note: "預約最早時段；含妝髮實際需 45–60 分鐘，原排 30 分鐘太趕。同時確認歸還時間與押金規定。",
           maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
-        { time: "08:45–10:15", title: "Wat Arun 拍照", loc: "鄭王廟＋Khanom Bueang - Wat Arun", highlight: true,
-          note: "<span class=\"hot\">拍照動線</span>：店面位於 Wat Arun 一帶，先拍 Wat Arun 再過河，免走回頭路。早上人少、光線佳。",
+        { time: "08:45–10:15", title: "Wat Arun 拍照（泰服）", loc: "鄭王廟＋Khanom Bueang - Wat Arun", highlight: true,
+          note: "泰服<span class=\"hot\">只在鄭王廟（Wat Arun）拍</span>；店面就在附近，拍完先歸還、再過河，免走回頭路。早上人少、光線佳。",
           maps: [
             { label: "Wat Arun 鄭王廟", q: "Wat Arun Bangkok" },
             { label: "Khanom Bueang - Wat Arun", q: "Khanom Bueang Wat Arun" },
           ] },
-        { time: "10:30–13:00", title: "過河→經典觀光", loc: "大皇宮／玉佛寺／臥佛寺",
-          note: "<span class=\"hot\">大皇宮 15:30 停止售票</span>，務必於下午前拍完。泰服需遮肩過膝，先確認款式合規。",
+        { time: "10:15–10:30", title: "歸還泰服", loc: "Bangkok & Blush", highlight: true,
+          note: "拍完 Wat Arun 直接就近歸還、換回一般服裝，再過河去對岸兩間寺（不穿泰服）。",
+          maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
+        { time: "10:30–13:00", title: "過橋→對岸兩間寺", loc: "大皇宮／玉佛寺、臥佛寺",
+          note: "過河後參觀對岸兩間寺（不穿泰服）。<span class=\"hot\">大皇宮 15:30 停止售票</span>，趁下午前逛完；大皇宮仍須遮肩過膝的一般服儀。",
           maps: [
             { label: "大皇宮 Grand Palace", q: "Grand Palace Bangkok" },
             { label: "臥佛寺 Wat Pho", q: "Wat Pho Bangkok" },
           ] },
         { time: "13:00–14:00", title: "午餐", loc: "Jae Wan（彈性）", note: "視排隊狀況調整。",
           maps: [{ label: "Jae Wan", q: "Jae Wan restaurant Bangkok" }] },
-        { time: "14:00–14:30", title: "歸還泰服", loc: "Bangkok & Blush", note: "回程順路歸還。",
-          maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
         { time: "15:00–18:00", title: "回飯店休息", loc: "Carlton Hotel Sukhumvit", note: "七月炎熱＋午後易雷陣雨，此時段留室內。",
           maps: [{ label: "Carlton Hotel Sukhumvit", q: "Carlton Hotel Bangkok Sukhumvit" }] },
         { time: "18:30 後", title: "夜市", loc: "JODD FAIRS Ratchada",
@@ -164,14 +165,14 @@ const TRIP = {
   ],
   costume: [
     { tier: "首選", name: "Bangkok & Blush", first: true,
-      desc: "已在收藏清單中，店面位於老城區 Wat Arun 一帶，官網（SimplyBook）可預約時段。請預約最早時段，並依更新後動線：先 Wat Arun、後大皇宮。",
+      desc: "已在收藏清單中，店面位於老城區 Wat Arun 一帶，官網（SimplyBook）可預約時段。泰服只在 Wat Arun（鄭王廟）拍攝，拍完就近歸還，再過河去大皇宮、臥佛寺（不穿泰服）。",
       q: "Bangkok & Blush" },
     { tier: "備選", name: "Sense of Thai Costume",
       desc: "若 Bangkok & Blush 時段不理想可作備選（熱門店需提前預約）。價格與方案以店家實際公告為準。",
       q: "Sense of Thai Costume Bangkok" },
   ],
   checklist: [
-    { t: "Bangkok & Blush", d: "官網預約最早時段，確認店面確切位置、歸還時間、大皇宮服裝合規。" },
+    { t: "Bangkok & Blush", d: "官網預約最早時段，確認店面確切位置、歸還時間與押金（泰服只在 Wat Arun 拍）。" },
     { t: "Jeh O Chula", d: "QueQ App 或 Klook 訂位（7/26 晚）；訂不到即定案 Kuay Jab Mr. Joe。" },
     { t: "NEUA.NEUR.BKK", d: "訂位 7/24 18:30。" },
     { t: "貓咪遊船（如要搭）", d: "IG huatakh_cat 預約 7/23 17:30 場，並確認會議可否準時結束。" },
@@ -291,14 +292,15 @@ function dayPlaces(d) {
   return out.slice(0, 9); // Google directions embed caps around ~10 stops
 }
 
-// Keyless Google Maps embed: a route through the day's stops (or a single pin).
+// Keyless Google Maps embed showing the day's spots as pins (transit mode → no
+// driving time; multi-waypoint transit can't route, so it just drops the markers).
 function dayMapSrc(d) {
   const places = dayPlaces(d);
   if (!places.length) return "";
   const e = encodeURIComponent;
   if (places.length === 1) return `https://maps.google.com/maps?q=${e(places[0])}&z=14&output=embed`;
   const daddr = places.slice(1).map(e).join("+to:");
-  return `https://maps.google.com/maps?saddr=${e(places[0])}&daddr=${daddr}&output=embed`;
+  return `https://maps.google.com/maps?saddr=${e(places[0])}&daddr=${daddr}&dirflg=r&output=embed`;
 }
 
 function renderDayMap(d) {
@@ -306,7 +308,7 @@ function renderDayMap(d) {
   if (!src) return "";
   return `<div class="daymap">
     <iframe class="daymap__frame" data-src="${src}" loading="lazy" title="${d.date} 當天景點地圖"></iframe>
-    <div class="daymap__hint">當天景點路線 · 點地圖可放大或在 Google 地圖開啟導航</div>
+    <div class="daymap__hint">當天景點位置 · 點地圖可放大，或在 Google 地圖查大眾運輸路線</div>
   </div>`;
 }
 
