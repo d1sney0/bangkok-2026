@@ -100,10 +100,13 @@ const TRIP = {
             { label: "Khanom Bueang - Wat Arun", q: "Khanom Bueang Wat Arun" },
           ] },
         { time: "12:15–12:30", title: "歸還泰服", loc: "Bangkok & Blush", highlight: true,
-          note: "拍完 Wat Arun 直接就近歸還、換回一般服裝，再過河去對岸兩間寺（不穿泰服）。",
+          note: "拍完 Wat Arun 直接就近歸還、換回一般服裝。過河前先在同側（西岸）吃碗船麵當午餐，再過河去對岸兩間寺（不穿泰服）。",
           maps: [{ label: "Bangkok & Blush", q: "Bangkok & Blush" }] },
-        { time: "12:30–15:00", title: "過橋→對岸兩間寺", loc: "大皇宮／玉佛寺、臥佛寺",
-          note: "過河參觀兩間寺（不穿泰服）。<span class=\"hot\">大皇宮 15:30 停止售票</span>，趁下午前逛完；大皇宮仍須遮肩過膝的一般服儀。",
+        { time: "12:30–13:00", title: "船麵午餐 Lung Ayutthaya Boat Noodle", loc: "Lung Ayutthaya Boat Noodle（Arun Amarin Rd，西岸）",
+          note: "就在 Bangkok & Blush／Wat Arun 同側，歸還泰服後步行約 5 分即到，順道當午餐——船麵小碗、上菜快，過河前吃完免走回頭路。<span class=\"hot\">營業時間需現場/IG 再確認，可能午後售完。</span>",
+          maps: [{ label: "Lung Ayutthaya Boat Noodle", q: "13.7456261,100.4853106" }] },
+        { time: "13:00–15:00", title: "過橋→對岸兩間寺", loc: "大皇宮／玉佛寺、臥佛寺",
+          note: "船麵後過河（Tha Tien 渡輪約 5 分）。<span class=\"hot\">大皇宮 15:30 停止售票</span>，先逛大皇宮再臥佛寺（臥佛寺開到 19:30 較彈性）；大皇宮仍須遮肩過膝的一般服儀。",
           maps: [
             { label: "大皇宮 Grand Palace", q: "Grand Palace Bangkok" },
             { label: "臥佛寺 Wat Pho", q: "Wat Pho Bangkok" },
@@ -154,7 +157,7 @@ const TRIP = {
             { label: "Terminal 21", q: "Terminal 21 Asok" },
           ] },
         { time: "13:15", title: "離開市區前往機場", loc: "Asoke → BKK", highlight: true,
-          note: "<span class=\"hot\">JX746 約 17:35 起飛、16:50 關櫃。</span>含退稅（先海關驗貨再托運）建議 14:30 前抵機場。",
+          note: "<span class=\"hot\">JX746 17:50 起飛（已確認）、16:50 關櫃。</span>13:15 出發、離峰 40–50 分可達，含退稅（先海關驗貨再托運）建議 14:30 前抵機場（距關櫃仍有逾 2 小時）。<span class=\"hot\">這天剩 3 位（另 2 位搭較早班次已離開）</span>：3 人＋行李叫 GrabCar 可、想寬鬆用 GrabXL。",
           maps: [{ label: "Suvarnabhumi Airport", q: "Suvarnabhumi Airport" }] },
       ],
     },
@@ -170,16 +173,7 @@ const TRIP = {
   checklist: [
     { t: "簽證 APP", d: "出發前用簽證 APP 辦好。" },
     { t: "現金／外幣", d: "每人帶 20,000 泰銖等值外幣（入境可能抽查財力）。" },
-    { t: "Bangkok & Blush 泰服", d: "已預訂 7/25 10:00；出發前確認歸還時間與押金。" },
-    { t: "Jeh O Chula", d: "QueQ App 或 Klook 訂位（7/26 晚）。" },
-    { t: "貓咪遊船（如要搭）", d: "IG huatakh_cat 預約 7/23 17:30 場，並確認會議可否準時結束。" },
     { t: "下載 Grab／Bolt", d: "叫車、夜市回程備用。" },
-    { t: "退稅文件", d: "購物時索取 P.P.10 表格＋收據，回程日先至海關驗貨再托運。" },
-  ],
-  trim: [
-    { b: "Robinson Lifestyle Suvarnabhumi", d: "若抵達日太累可刪。" },
-    { b: "Smoothies Drink Healthy", d: "非核心景點，順路再去。" },
-    { b: "Gourmet Market／Villa Market／Foodland", d: "性質重複，保留 1–2 個即可。" },
   ],
   top5: [
     "Wat Arun＋泰服拍照（新動線：早上先拍）",
@@ -354,14 +348,6 @@ function renderChecklist() {
   </section>`;
 }
 
-function renderTrim() {
-  const items = TRIP.trim.map((t) => `<li><b>${t.b}</b>：${t.d}</li>`).join("");
-  return `<section class="wrap">
-    ${sectionHead("OPTIONAL", "可視體力刪減的點")}
-    <div class="trim"><ul>${items}</ul></div>
-  </section>`;
-}
-
 function renderTop5() {
   const items = TRIP.top5
     .map((t, i) => `<div class="top5__item"><span class="top5__no">${i + 1}</span><span class="top5__text">${t}</span></div>`)
@@ -520,7 +506,7 @@ function main() {
   const tabs = [
     { id: "overview", pill: tab("overview", "PLAN", "總覽"), html: renderBasics() + renderTop5() },
     ...dayTabs,
-    { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderCostume() + renderChecklist() + renderTrim() },
+    { id: "prep", pill: tab("prep", "PREP", "行前"), html: renderCostume() + renderChecklist() },
     { id: "collection", pill: tab("collection", "LIST", "收藏"), html: renderCollection() },
   ];
 
